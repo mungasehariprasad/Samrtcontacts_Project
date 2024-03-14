@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Login page</title>
+</head>
+
+<body>
+    <section class="banner">
+        <div class="container text-dark">
+            <div class="row">
+                <div class="col-md-4 offset-md-8 mt-5">
+                    <div class="card">
+
+                        <p class="card-header text-center">
+                            Login Here
+
+                        </p>
+                        <div th:if="${param.error}" class=" alert alert-danger">
+                            Invalid username and password
+                        </div>
+                        <div th:if="${param.logout}" class=" alert alert-success">
+                            You have been logout
+                        </div>
+
+
+                        <form th:action="@{/dologin}"  th:object="${user}" method="post">
+                            <div class="card-body">
+
+                                <div class="mb-3">
+                                    <label class="form-label">Email address</label>
+                                    <input type="email" name="username" class="form-control"
+                                        aria-describedby="emailHelp" />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Password</label>
+                                    <input type="password" name="password" class="form-control" />
+                                </div>
+
+                                <button type="submit" class="btn bg-primary" >
+                                    Login
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+</body>
+
+</html>
